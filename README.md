@@ -18,7 +18,7 @@ Designed with flexibility and ease of use in mind, TTSViewer highlights importan
 - **User-Friendly Interface**: Easy to use, simple design—just select your division and start viewing!
 
 ## How to Use
-Simply download the `.exe` file, and TTSViewer will automatically pull the latest stats from the Time To Score system. Customize the display for divisions and players you care about, and see real-time stats like never before.
+if you don't know how to use the `.py` simply download the `.exe` file, and TTSViewer will automatically pull the latest stats from the Time To Score system. Use the dropdown menu for divisions and players you care about, and see real-time stats like never before!
 
 ---
 
