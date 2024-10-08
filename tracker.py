@@ -60,8 +60,11 @@ def fetch_player_stats(division_url):
                 assists = int(cols[5].text.strip())  # Assists
                 points = int(cols[6].text.strip())  # Points
                 pim = int(cols[7].text.strip())  # Penalty minutes
-                badge = assign_badge(gp, goals, assists, pim)  # Assign badge based on stats
-                player_stats_data.append([player, player_link, gp, goals, assists, points, pim, badge])
+                
+                # Ignore the Pts/Game column here to prevent the error
+                if 'Pts/Game' not in cols:
+                    badge = assign_badge(gp, goals, assists, pim)  # Assign badge based on stats
+                    player_stats_data.append([player, player_link, gp, goals, assists, points, pim, badge])
             except (ValueError, TypeError) as e:
                 print(f"Skipping row due to error: {e}")
                 continue
@@ -74,7 +77,7 @@ def display_player_stats(player_stats_data):
     for i in player_tree.get_children():
         player_tree.delete(i)
     for stats in player_stats_data:
-        player_tree.insert("", "end", values=stats[:1] + stats[2:])
+        player_tree.insert("", "end", values=stats[:1] + stats[2:])  # Skipping link for display
     print("Player stats displayed.")
 
 # Function to handle double-clicking on a player's name and open their unique profile page
@@ -139,6 +142,7 @@ def update_all_time_stats(player_stats_data):
         worst_players_tree.delete(i)
     for stats in worst_players:
         worst_players_tree.insert("", "end", values=[stats[0], stats[6]])
+
 # Function to aggregate stats across all divisions
 def aggregate_stats_across_divisions():
     combined_stats = defaultdict(lambda: [0, 0, 0, 0, 0])
@@ -166,18 +170,6 @@ def display_top_5_all_time():
         top_3_all_time_tree.insert("", "end", values=[player, stats[0], stats[1], stats[2], stats[4]])
 
     division_combobox.set("All Divisions")
-
-# Function to display a loading screen while data is fetched
-def show_loading_screen():
-    loading_popup = tk.Toplevel(root)
-    loading_popup.title("Loading")
-    loading_popup.geometry("300x100")
-    label = tk.Label(loading_popup, text="Loading data, please wait...")
-    label.pack(pady=10)
-    progress = ttk.Progressbar(loading_popup, orient='horizontal', length=200, mode='determinate')
-    progress.pack(pady=10)
-    progress.start(10)  # Adjust the speed of progress bar if needed
-    root.after(3000, loading_popup.destroy)  # Close after 3 seconds (adjust as needed)
 
 # GUI Setup
 root = tk.Tk()
