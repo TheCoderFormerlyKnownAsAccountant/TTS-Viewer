@@ -1,26 +1,96 @@
-# TTS-Viewer
+```markdown
+# TTS Viewer - Hockey League Stats Viewer
 
-Welcome to **TTSViewer**, a Python-based desktop app that simplifies and streamlines the process of tracking hockey league stats from the **Time To Score (TTS)** system. Say goodbye to tedious stat tracking and hello to a user-friendly interface for keeping tabs on teams, players, and league leaders.
-
-## Project Overview
-TTSViewer pulls data from the public Time To Score (TTS) system and displays it in a user-friendly manner, offering insights into:
-- Player and team standings
-- Penalty minutes, goals, assists, and more
-- Badges for player achievements (or infamous penalties)
-- All-time top performers across divisions
-
-Designed with flexibility and ease of use in mind, TTSViewer highlights important player metrics dynamically, making it easy to track performance for every team and division.
+This project is designed to fetch and display team standings and player statistics for hockey leagues from the Sharks Ice league website. The application is built using Python and provides a graphical user interface (GUI) for viewing stats.
 
 ## Features
-- **Dynamic Player Stats**: View real-time player statistics from multiple divisions.
-- **Custom Badges**: Recognize top performers with badges for high-achieving stats and penalties.
-- **All-Time Leaders**: Get a snapshot of the top players across all divisions, highlighting the best and the worst.
-- **User-Friendly Interface**: Easy to use, simple design—just select your division and start viewing!
-
-## How to Use
-if you don't know how to use the `.py` simply download the `.exe` file, and TTSViewer will automatically pull the latest stats from the Time To Score system. Use the dropdown menu for divisions and players you care about, and see real-time stats like never before!
+- Fetch and display team standings.
+- Fetch and display player statistics by division.
+- Assign badges based on player performance.
+- Aggregate and display all-time top players.
 
 ---
 
-### Contact
-If you have any questions or suggestions, feel free to open an issue or contact me directly on GitHub!
+## How to Use
+
+### Running the Python Script
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/TheCoderFormerlyKnownAsAccountant/tts-viewer.git
+   ```
+
+2. **Install the required dependencies:**
+
+   Make sure you have Python 3.x installed, and then install the required packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   The key dependencies are:
+   - `beautifulsoup4`
+   - `requests`
+   - `tkinter` (comes bundled with Python)
+
+3. **Run the Python script:**
+
+   Once you’ve installed the dependencies, you can run the Python script directly:
+
+   ```bash
+   python tracker.py
+   ```
+
+---
+
+### Generating the Executable (.exe) File (Windows)
+
+If you prefer to have an executable version of the program:
+
+1. **Install PyInstaller:**
+
+   If you don’t have it installed already, you can install PyInstaller with:
+
+   ```bash
+   pip install pyinstaller
+   ```
+
+2. **Generate the executable:**
+
+   Use PyInstaller to generate a single-file executable:
+
+   ```bash
+   pyinstaller --onefile tracker.py
+   ```
+
+3. **Find your executable:**
+
+   After running the above command, you’ll find the `.exe` file in the `dist` directory. The executable will contain the entire app, which you can run without Python.
+
+---
+
+### Downloading the Executable (Precompiled for Windows)
+
+If you don't want to run the Python script and prefer to use the executable, download the precompiled `.exe` file from the [Releases](https://github.com/TheCoderFormerlyKnownAsAccountant/tts-viewer/releases) section.
+
+**Note:** The executable is for Windows users only. If you are on another operating system, please follow the steps to run the Python script.
+
+---
+
+## Requirements
+
+To run the Python script, you need the following:
+- Python 3.x
+- The packages listed in `requirements.txt` (install with `pip install -r requirements.txt`)
+
+If you are creating the executable, you’ll need:
+- PyInstaller (installed via `pip`)
+
+---
+
+## Contact
+
+For any questions or issues, feel free to open an issue on GitHub:
+- **GitHub**: [TheCoderFormerlyKnownAsAccountant](https://github.com/TheCoderFormerlyKnownAsAccountant)
+```
